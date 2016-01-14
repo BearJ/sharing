@@ -14,15 +14,15 @@
 <script type="text/javascript">
     !function () {
         var links = [
-            {name: "transform", url: "/html/transform.html"}
+            {name: "transform", tmpl: "transform"}
         ];
 
 
-        var html = "", tmpl = '<a class="weui_cell" href="{=url}"><div class="weui_cell_bd weui_cell_primary">{=name}</div><div class="weui_cell_ft"></div></a>';
+        var prefix = location.pathname.replace("index.html", "") + "html/", html = "";
+        var tmpl = '<a class="weui_cell" href="{=url}"><div class="weui_cell_bd weui_cell_primary">{=name}</div><div class="weui_cell_ft"></div></a>';
         for (var name in links) {
-            html += tmpl.replace(/\{=(.*?)\}/g, function(w, m){
-                return links[name][m];
-            });
+            var link = links[name];
+            html += tmpl.replace("{=name}", link.name).replace("{=url}", prefix + link.tmpl + ".html");
         }
         document.getElementById("list").innerHTML = html;
     }();
