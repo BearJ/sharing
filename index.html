@@ -5,8 +5,27 @@
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Bear Sharing</title>
     <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.2.3/weui.css"/>
+    <style type="text/css">body{background:#EFEFF4;}</style>
 </head>
 <body ontouchstart>
+<div class="weui_cells_title">链接</div>
+<div id="list" class="weui_cells weui_cells_access"></div>
 
+<script type="text/javascript">
+    !function () {
+        var links = [
+            {name: "transform", url: "/html/transform.html"}
+        ];
+
+
+        var html = "", tmpl = '<a class="weui_cell" href="{=url}"><div class="weui_cell_bd weui_cell_primary">{=name}</div><div class="weui_cell_ft"></div></a>';
+        for (var name in links) {
+            html += tmpl.replace(/\{=(.*?)\}/g, function(w, m){
+                return links[name][m];
+            });
+        }
+        document.getElementById("list").innerHTML = html;
+    }();
+</script>
 </body>
 </html>
