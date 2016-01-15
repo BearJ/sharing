@@ -12,6 +12,6 @@ gulp.task('server', function () {
         server: {
             baseDir: "."
         },
-        port: 80
+        port: 8099
     });
 });

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>CSS Loading</title>
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.2.3/weui.css"/>
+    <style type="text/css">
+        .loading_box{
+            display: inline-block;
+            margin: 30px;
+            vertical-align: middle;
+        }
+
+        .weui_loading{
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .spin_wrp{
+            position:relative;
+            width:40px;
+            height:40px
+        }
+        .spin{
+            position:absolute;
+            background-color:#FFF;
+            width:10%;
+            height:30%;
+            -webkit-border-radius: 5px 5px 0 0;
+            -webkit-animation-name:spin;
+            -webkit-animation-duration:1.04s;
+            -webkit-animation-iteration-count:infinite;
+
+        }
+        .spin_1, .spin_5{width: 30%; height: 10%;}
+        .spin_1{ left: 0; top: 50%; margin-top:-5%; -webkit-animation-delay:0.39s; -webkit-border-radius: 5px 0 0 5px; }
+        .spin_2{ left: 25%; top: 25%; margin:-15% 0 0 -6%; -webkit-animation-delay:0.52s; -webkit-transform: rotate(-45deg); }
+        .spin_3{ top: 0; left: 50%; margin-left:-5%; -webkit-animation-delay:0.65s; }
+        .spin_4{ right: 25%; top: 25%; margin:-15% -6% 0 0; -webkit-animation-delay:0.78s; -webkit-transform: rotate(45deg); }
+        .spin_5{ right: 0; top: 50%; margin-top:-5%; -webkit-animation-delay:0.91s; -webkit-border-radius: 0 5px 5px 0; }
+        .spin_6{ right: 25%; bottom: 25%; margin: 0 -6% -15% 0; -webkit-animation-delay:1.04s; -webkit-transform: rotate(135deg); }
+        .spin_7{ left: 50%; bottom: 0; margin-left:-5%; -webkit-animation-delay:1.17s; -webkit-transform: rotate(180deg); }
+        .spin_8{ left: 25%; bottom: 25%; margin: 0 0 -15% -6%; -webkit-animation-delay:1.3s; -webkit-transform: rotate(-135deg); }
+        @-webkit-keyframes spin{
+            0%{ background-color: #4BBCF6 }
+            100%{ background-color: #FFF }
+        }
+    </style>
+</head>
+<body ontouchstart>
+<div class="loading_box">
+    <div class="weui_loading">
+        <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+        <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+    </div>
+</div>
+<div class="loading_box">
+    <div class="spin_wrp">
+        <span class="spin spin_1"></span>
+        <span class="spin spin_2"></span>
+        <span class="spin spin_3"></span>
+        <span class="spin spin_4"></span>
+        <span class="spin spin_5"></span>
+        <span class="spin spin_6"></span>
+        <span class="spin spin_7"></span>
+        <span class="spin spin_8"></span>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    !function(){
+        var html = document.body.innerHTML, newHTML = "";
+        for (var i = 0; i < 50; ++i) {
+            newHTML += html;
+        }
+        document.body.innerHTML = newHTML;
+    }();
+</script>
+</html>

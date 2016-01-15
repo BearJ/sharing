@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>CSS Loading</title>
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.2.3/weui.css"/>
+    <style type="text/css">
+        .loading_box{
+            display: inline-block;
+            margin: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body ontouchstart>
+<div class="loading_box">
+    <style>
+        .bubbling {
+            position: relative;
+            text-align: center;
+            width:75px;
+            height:50px;
+        }
+        .bubbling span {
+            position: absolute;bottom:0;
+            display: inline-block;
+            vertical-align: middle;
+            width: 10px;
+            height: 10px;
+            background: #4BBCF6;
+            -webkit-border-radius: 50px;
+            -webkit-animation: bubbling 1.3s infinite alternate;/*alternate 交互替换动画方向*/
+        }
+        #bubbling_1 { -webkit-animation-delay: 0s;left:0; }
+        #bubbling_2 { -webkit-animation-delay: 0.39s;left:25px; }
+        #bubbling_3 { -webkit-animation-delay: 0.78s;left:50px; }
+
+        @-webkit-keyframes bubbling {
+            0% {
+                width: 10px;
+                height: 10px;
+                background-color:#4BBCF6;
+                bottom:0;
+            }
+            100% {
+                width: 24px;
+                height: 24px;
+                background-color:#FFFFFF;
+                bottom: 21px;
+            }
+        }
+    </style>
+    <div class="bubbling">
+        <span id="bubbling_1"></span>
+        <span id="bubbling_2"></span>
+        <span id="bubbling_3"></span>
+    </div>
+</div>
+<div class="loading_box">
+    <style>
+        .dot_wave{
+            display: inline-block;
+            vertical-align: middle;
+            margin:0 5px;
+            background-color:transparent;
+            width:20px;
+            height:20px;
+            -webkit-animation-name:bounce_dot_wave;
+            -webkit-animation-duration:1.3s;
+            -webkit-animation-iteration-count:infinite;
+
+            -webkit-border-radius: 50%;
+        }
+        #dot_wave_1{ -webkit-animation-delay:0s; }
+        #dot_wave_2{ -webkit-animation-delay:0.5s; }
+        #dot_wave_3{ -webkit-animation-delay:1s; }
+        @-webkit-keyframes bounce_dot_wave{
+            0%{ background-color: #4BBCF6; }
+            100%{ background-color: #FFFFFF; }
+        }
+    </style>
+    <div id="dot_wave">
+        <div id="dot_wave_1" class="dot_wave"></div>
+        <div id="dot_wave_2" class="dot_wave"></div>
+        <div id="dot_wave_3" class="dot_wave"></div>
+    </div>
+</div>
+<div class="loading_box">
+    <style>
+        .spinning_squares{
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 3px;
+            top:0;
+            background-color:#4BBCF6;
+            width:13px;
+            height:13px;
+            -webkit-animation-name:bounce_spinning_squares;
+            -webkit-animation-duration:1s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-transform:scale(.3);
+        }
+
+        #spinning_squares_1{ -webkit-animation-delay:0.52s; }
+        #spinning_squares_2{ -webkit-animation-delay:0.65s; }
+        #spinning_squares_3{ -webkit-animation-delay:0.78s; }
+        #spinning_squares_4{ -webkit-animation-delay:0.91s; }
+        #spinning_squares_5{ -webkit-animation-delay:1.04s; }
+
+        @-webkit-keyframes bounce_spinning_squares{
+            0%{
+                -webkit-transform:scale(1);
+                background-color:#4BBCF6;
+            }
+            100%{
+                -webkit-transform:scale(.3) rotate(90deg);
+                background-color:#FFFFFF;
+            }
+        }
+    </style>
+    <div id="spinning_squares">
+        <div id="spinning_squares_1" class="spinning_squares"></div>
+        <div id="spinning_squares_2" class="spinning_squares"></div>
+        <div id="spinning_squares_3" class="spinning_squares"></div>
+        <div id="spinning_squares_4" class="spinning_squares"></div>
+        <div id="spinning_squares_5" class="spinning_squares"></div>
+    </div>
+</div>
+<div class="loading_box">
+    <style>
+        #infinite_processing_bar{
+            height:20px;
+            width:160px;
+            border:1px solid #4BBCF6;
+            overflow:hidden;
+            background-color:#FFFFFF
+        }
+        .infinite_processing_bar_inner{
+            width:9999px;
+            -webkit-animation-name:infinite_processing_bar;
+            -webkit-animation-duration:1.3s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-timing-function:linear;
+        }
+        .infinite_processing_bar_block{
+            background-color:#4BBCF6;
+            float:left;
+            width:15px;
+            height:45px;
+            margin-right:25px;
+            margin-top:-10px;
+            -webkit-transform:rotate(45deg);
+            -webkit-transform-origin: 0 0;
+        }
+        @-webkit-keyframes infinite_processing_bar{
+            0%{ margin-left: 0; }
+            100%{ margin-left: -40px; }
+        }
+
+    </style>
+    <div id="infinite_processing_bar">
+        <div class="infinite_processing_bar_inner">
+            <div class="infinite_processing_bar_block"></div>
+            <div class="infinite_processing_bar_block"></div>
+            <div class="infinite_processing_bar_block"></div>
+            <div class="infinite_processing_bar_block"></div>
+            <div class="infinite_processing_bar_block"></div>
+            <div class="infinite_processing_bar_block"></div>
+        </div>
+    </div>
+</div>
+<div class="loading_box">
+    <style>
+        .windows8 {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            -webkit-transform: rotate(225deg);
+        }
+        .windows8 .ball_box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            -webkit-animation: orbit 4.2s infinite;
+        }
+        .windows8 .ball_box .ball{
+            position: absolute;
+            width: 18%;
+            height: 18%;
+            background: #4BBCF6;
+            left:0;top:0;
+            -webkit-border-radius: 50%;
+        }
+        .windows8 #ball_box_1 { -webkit-animation-delay: 0.17s; }
+        .windows8 #ball_box_2 { -webkit-animation-delay: 0.34s; }
+        .windows8 #ball_box_3 { -webkit-animation-delay: 0.51s; }
+        .windows8 #ball_box_4 { -webkit-animation-delay: 0.68s; }
+        .windows8 #ball_box_5 { -webkit-animation-delay: 0.85s; }
+
+        @-webkit-keyframes orbit {
+            0% {
+                opacity: 1;
+                -webkit-transform: rotate(0);
+                -webkit-animation-timing-function: ease-out;
+            }
+            5% {
+                opacity: 1;
+                -webkit-transform: rotate(100deg);
+                -webkit-animation-timing-function: linear;
+            }
+            35% {
+                opacity: 1;
+                -webkit-transform:rotate(240deg);
+                -webkit-animation-timing-function: ease-in-out;
+            }
+            40% {
+                opacity: 1;
+                -webkit-transform: rotate(460deg);
+                -webkit-animation-timing-function: linear;
+            }
+            70% {
+                opacity: 1;
+                -webkit-transform: rotate(600deg);
+                -webkit-animation-timing-function: ease-out;
+            }
+            74% {
+                opacity: 1;
+                -webkit-transform: rotate(720deg);
+                -webkit-animation-timing-function: ease-out;
+            }
+
+            75% {
+                opacity: 0;
+                -webkit-transform:rotate(720deg);
+            }
+        }
+    </style>
+    <div class="windows8">
+        <div class="ball_box" id="ball_box_1"><div class="ball"></div></div>
+        <div class="ball_box" id="ball_box_2"><div class="ball"></div></div>
+        <div class="ball_box" id="ball_box_3"><div class="ball"></div></div>
+        <div class="ball_box" id="ball_box_4"><div class="ball"></div></div>
+        <div class="ball_box" id="ball_box_5"><div class="ball"></div></div>
+    </div>
+</div>
+<div class="loading_box">
+    <style>
+        #spin{
+            position:relative;
+            width:60px;
+            height:60px
+        }
+        .spin{
+            position:absolute;
+            background-color:#FFF;
+            width:10%;
+            height:30%;
+            -webkit-border-radius: 5px 5px 0 0;
+            -webkit-animation-name:spin;
+            -webkit-animation-duration:1.04s;
+            -webkit-animation-iteration-count:infinite;
+
+        }
+
+        #spin_1, #spin_5{width: 30%; height: 10%;}
+        #spin_1{ left: 0; top: 50%; margin-top:-5%; -webkit-animation-delay:0.39s; -webkit-border-radius: 5px 0 0 5px; }
+        #spin_2{ left: 25%; top: 25%; margin:-15% 0 0 -6%; -webkit-animation-delay:0.52s; -webkit-transform: rotate(-45deg); }
+        #spin_3{ top: 0; left: 50%; margin-left:-5%; -webkit-animation-delay:0.65s; }
+        #spin_4{ right: 25%; top: 25%; margin:-15% -6% 0 0; -webkit-animation-delay:0.78s; -webkit-transform: rotate(45deg); }
+        #spin_5{ right: 0; top: 50%; margin-top:-5%; -webkit-animation-delay:0.91s; -webkit-border-radius: 0 5px 5px 0; }
+        #spin_6{ right: 25%; bottom: 25%; margin: 0 -6% -15% 0; -webkit-animation-delay:1.04s; -webkit-transform: rotate(135deg); }
+        #spin_7{ left: 50%; bottom: 0; margin-left:-5%; -webkit-animation-delay:1.17s; -webkit-transform: rotate(180deg); }
+        #spin_8{ left: 25%; bottom: 25%; margin: 0 0 -15% -6%; -webkit-animation-delay:1.3s; -webkit-transform: rotate(-135deg); }
+
+        @-webkit-keyframes spin{
+            0%{ background-color: #4BBCF6 }
+            100%{ background-color: #FFF }
+        }
+    </style>
+    <div id="spin">
+        <div id="spin_1" class="spin"></div>
+        <div id="spin_2" class="spin"></div>
+        <div id="spin_3" class="spin"></div>
+        <div id="spin_4" class="spin"></div>
+        <div id="spin_5" class="spin"></div>
+        <div id="spin_6" class="spin"></div>
+        <div id="spin_7" class="spin"></div>
+        <div id="spin_8" class="spin"></div>
+    </div>
+</div>
+<div class="loading_box">
+    <style>
+        #dot_circle{
+            position:relative;
+            width:60px;
+            height:60px
+        }
+        .dot_circle{
+            position:absolute;
+            background-color:#4BBCF6;
+            width:18%;
+            height:18%;
+            -webkit-border-radius:50%;
+            -webkit-animation-name:bounce_dot_circle;
+            -webkit-animation-duration:1.04s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-transform: scale(.3);
+        }
+
+        #dot_circle_1{ left: 0; top: 50%; margin-top:-9%; -webkit-animation-delay:0.39s; }
+        #dot_circle_2{ left: 25%; top: 25%; margin:-13% 0 0 -15%; -webkit-animation-delay:0.52s; }
+        #dot_circle_3{ top: 0; left: 50%; margin-left:-9%; -webkit-animation-delay:0.65s; }
+        #dot_circle_4{ right: 25%; top: 25%; margin:-13% -15% 0 0; -webkit-animation-delay:0.78s; }
+        #dot_circle_5{ right: 0; top: 50%; margin-top:-9%; -webkit-animation-delay:0.91s; }
+        #dot_circle_6{ right: 25%; bottom: 25%; margin: 0 -15% -13% 0; -webkit-animation-delay:1.04s; }
+        #dot_circle_7{ left: 50%; bottom: 0; margin-left:-9%; -webkit-animation-delay:1.17s; }
+        #dot_circle_8{ left: 25%; bottom: 25%; margin: 0 0 -13% -15%; -webkit-animation-delay:1.3s; }
+
+        @-webkit-keyframes bounce_dot_circle{
+            0%{ -webkit-transform: scale(1) }
+            100%{ -webkit-transform: scale(.3) }
+        }
+    </style>
+    <div id="dot_circle">
+        <div id="dot_circle_1" class="dot_circle"></div>
+        <div id="dot_circle_2" class="dot_circle"></div>
+        <div id="dot_circle_3" class="dot_circle"></div>
+        <div id="dot_circle_4" class="dot_circle"></div>
+        <div id="dot_circle_5" class="dot_circle"></div>
+        <div id="dot_circle_6" class="dot_circle"></div>
+        <div id="dot_circle_7" class="dot_circle"></div>
+        <div id="dot_circle_8" class="dot_circle"></div>
+    </div>
+</div>
+<div class="loading_box">
+    <style type="text/css">
+        #opposite_circle{
+            width: 60px;
+            height: 60px;
+        }
+        #opposite_circle .circle{
+            border: 5px solid #4BBCF6;
+            border-radius: 50%;
+            border-bottom-color: transparent;
+
+            /*ʵ�ִ�ֱˮƽ����*/
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+
+            -webkit-animation-duration: 3s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+        }
+
+        #opposite_circle_out{ width: 50px; height:50px; -webkit-animation-name: opposite_circle_out; }
+        #opposite_circle_in{ width: 35px; height:35px; -webkit-animation-name: opposite_circle_in; }
+
+        @-webkit-keyframes opposite_circle_out{
+            0%{-webkit-transform: rotate(0);}
+            100%{-webkit-transform: rotate(360deg);}
+        }
+        @-webkit-keyframes opposite_circle_in{
+            0%{-webkit-transform: rotate(720deg);}
+            100%{-webkit-transform: rotate(0);}
+        }
+    </style>
+    <div id="opposite_circle">
+        <div id="opposite_circle_out" class="circle">
+            <div id="opposite_circle_in" class="circle"></div>
+        </div>
+    </div>
+</div>
+<div class="loading_box">
+    <style>
+        .fountaintext{
+            color:#4BBCF6;
+            font-size:25px;
+            text-decoration:none;
+            font-weight:normal;
+            font-style:normal;
+            float:left;
+            -webkit-animation-name:bounce_fountaintext;
+            -webkit-animation-duration:1.82s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-transform:scale(.5);
+        }
+
+        #fountaintext_1{ -webkit-animation-delay:0.52s; }
+        #fountaintext_2{ -webkit-animation-delay:0.65s; }
+        #fountaintext_3{ -webkit-animation-delay:0.78s; }
+        #fountaintext_4{ -webkit-animation-delay:0.91s; }
+        #fountaintext_5{ -webkit-animation-delay:1.04s; }
+        #fountaintext_6{ -webkit-animation-delay:1.17s; }
+        #fountaintext_7{ -webkit-animation-delay:1.3s; }
+        #fountaintext_8{ -webkit-animation-delay:1.43s; }
+        #fountaintext_9{ -webkit-animation-delay:1.56s; }
+        #fountaintext_10{ -webkit-animation-delay:1.69s; }
+
+        @-webkit-keyframes bounce_fountaintext{
+            0%{ -webkit-transform: scale(1); color: #4BBCF6; opacity: 1; }
+            100%{ -webkit-transform: scale(.5); color: #FFFFFF; opacity: 0; }
+        }
+    </style>
+    <div id="fountaintext">
+        <div id="fountaintext_1" class="fountaintext">L</div>
+        <div id="fountaintext_2" class="fountaintext">o</div>
+        <div id="fountaintext_3" class="fountaintext">a</div>
+        <div id="fountaintext_4" class="fountaintext">d</div>
+        <div id="fountaintext_5" class="fountaintext">i</div>
+        <div id="fountaintext_6" class="fountaintext">n</div>
+        <div id="fountaintext_7" class="fountaintext">g</div>
+        <div id="fountaintext_8" class="fountaintext">.</div>
+        <div id="fountaintext_9" class="fountaintext">.</div>
+        <div id="fountaintext_10" class="fountaintext">.</div>
+    </div>
+</div>
+<div class="loading_box">
+    <style>
+        #blurringtext{
+            width:128px;
+            font-size:25px;
+            float:left;
+            text-shadow: #4BBCF6 0 0 0;
+            color: transparent;
+            -webkit-animation-name:bounce_blurringtext;
+            -webkit-animation-duration:1.82s;
+            -webkit-animation-iteration-count:infinite;
+        }
+
+        @-webkit-keyframes bounce_blurringtext{
+            0%{ text-shadow: #4BBCF6 0 0 0; }
+            50%{ text-shadow: #FFFFFF 0 0 20px; }
+            100%{ text-shadow: #4BBCF6 0 0 0; }
+        }
+    </style>
+    <div id="blurringtext">Loading...</div>
+</div>
+</body>
+</html>
