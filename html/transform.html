@@ -3,10 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>transform</title>
+    <title>Transform变形</title>
     <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.2.3/weui.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/transform.css"/>
 </head>
 <body ontouchstart>
-
+<dl>
+    <dd>
+        <div class="wrp">
+            <h4>Rotate旋转</h4>
+            <div>
+                <span action="rotate" class="demo"></span>
+                <span action="rotate" class="demo origin"></span>
+            </div>
+        </div>
+    </dd>
+    <dd>
+        <div class="wrp">
+            <h4>Translate平移</h4>
+            <div>
+                <span action="translate" class="demo"></span>
+                <span action="translate" class="demo origin"></span>
+            </div>
+        </div>
+    </dd>
+    <dd>
+        <div class="wrp">
+            <h4>Skew倾斜</h4>
+            <div>
+                <span action="skew" class="demo"></span>
+                <span action="skew" class="demo origin"></span>
+            </div>
+        </div>
+    </dd>
+    <dd>
+        <div class="wrp">
+            <h4>Scale缩放</h4>
+            <div>
+                <span action="scale" class="demo"></span>
+                <span action="scale" class="demo origin"></span>
+            </div>
+        </div>
+    </dd>
+    <dd>
+        <div class="wrp">
+            <h4>Matrix母体（矩阵）</h4>
+            <div>
+                <span action="matrix" class="demo"></span>
+                <span action="matrix" class="demo origin"></span>
+            </div>
+        </div>
+    </dd>
+</dl>
+<script type="text/javascript">
+    document.body.onclick = function(e){
+        var span = e.target, action = span.getAttribute("action");
+        span.classList.contains(action) ? span.classList.remove(action) : span.classList.add(action);
+    }
+</script>
 </body>
 </html>
