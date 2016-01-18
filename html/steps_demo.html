@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>理解steps()里的start和end</title>
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.2.3/weui.css"/>
+    <style>
+        @keyframes up-side {
+            0% {
+                top: 0;
+            }
+            100% {
+                top: -245px;
+            }
+        }
+        @keyframes right-side {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 245px;
+            }
+        }
+        body{
+            padding: 10px;
+        }
+        .ball {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(20px, 265px);
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+            animation: up-side 3s steps(3, start) infinite alternate, right-side 3s linear infinite alternate;
+        }
+        #step-end {
+            display: none;
+            background: blue;
+            animation: up-side 3s steps(3, end) infinite alternate, right-side 3s linear infinite alternate;
+        }
+        #graph {
+            position: relative;
+            margin: 10px auto;
+            width: 320px;
+            height: 295px;
+            background: url(../img/graph.png);
+            background-size: 320px;
+        }
+        input, label {
+            cursor: pointer;
+        }
+        #end:checked ~ #graph #step-start {
+            display: none;
+        }
+        #end:checked ~ #graph #step-end {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <input type="radio" name="animation" id="start" checked="checked">
+    <label for="start">steps(3, start)</label>
+    <input type="radio" name="animation" id="end">
+    <label for="end">steps(3, end)</label>
+    <div id="graph">
+        <div id="step-start" class="ball"></div>
+        <div id="step-end" class="ball"></div>
+    </div>
+</div>
+</body>
+</html>
