@@ -23,6 +23,8 @@ dt {
     background-color: #4bbcf6;
     -webkit-transition: 0.3s;
     transition: 0.3s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 .demo:before{
     content: " ";

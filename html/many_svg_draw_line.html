@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>大量SVG画线动画</title>
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.2.3/weui.css"/>
+    <style type="text/css">
+        svg{
+            float: left;
+            padding: 10px;
+        }
+        path{
+            stroke-width: 5px;
+            stroke: #4BBCF6;
+            fill: none;
+        }
+        .circle{
+            stroke-dasharray: 269px;
+            stroke-dashoffset: 269px;
+            -webkit-animation: circle 4s infinite;
+        }
+        @-webkit-keyframes circle{
+            25% {
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body ontouchstart>
+<div id="svg">
+    <svg width="86" height="86">
+        <path class="circle" d="M43.3,0.5c23.6,0,42.8,19.1,42.8,42.8S66.9,86.2,43.3,86.2S0.5,67.1,0.5,43.3S19.8,0.5,43.3,0.5L43.3,0.5z"></path>
+    </svg>
+</div>
+<script type="text/javascript">
+    !function(){
+        var html = document.getElementById("svg").innerHTML, newHTML = "";
+        for (var i = 0; i < 100; ++i) {
+            newHTML += html;
+        }
+        document.getElementById("svg").innerHTML = newHTML;
+    }();
+</script>
+</body>
+</html>

@@ -56,10 +56,10 @@
     </dd>
 </dl>
 <script type="text/javascript">
-    document.body.onclick = function(e){
+    document.body.addEventListener("ontouchstart" in document.documentElement ? "touchstart" : "click", function(e){
         var span = e.target, action = span.getAttribute("action");
         span.classList.contains(action) ? span.classList.remove(action) : span.classList.add(action);
-    }
+    }, false);
 </script>
 </body>
 </html>

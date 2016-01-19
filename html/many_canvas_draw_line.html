@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>大量canvas画线动画</title>
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.2.3/weui.css"/>
+    <style type="text/css">
+        canvas{
+            float: left;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body ontouchstart>
+<script type="text/javascript" src="../js/BezierEasing.js"></script>
+<script type="text/javascript">
+    !function(){
+        var ctxList = [], totalLength = 269, startTime, duration = 1000; // 1000ms
+        var path2d = new Path2D("M43.3,0.5c23.6,0,42.8,19.1,42.8,42.8S66.9,86.2,43.3,86.2S0.5,67.1,0.5,43.3S19.8,0.5,43.3,0.5L43.3,0.5z");
+        var timingFunction = BezierEasing.css["ease-in-out"];
+
+        for (var i = 0; i < 100; ++i) {
+            var canvas = document.createElement("canvas"), ctx = canvas.getContext("2d");
+            canvas.width = canvas.height = 87;
+
+            ctx.strokeStyle = "#4BBCF6";
+            ctx.lineWidth = 1;
+
+            ctx.setLineDash([totalLength, totalLength]);
+            ctx.lineDashOffset = totalLength;
+
+            ctxList.push(ctx);
+            document.body.appendChild(canvas);
+        }
+        startTime = + new Date();
+
+        function draw(){
+            outer:{
+                for (var i = 0, len = ctxList.length; i < len; ++i) {
+                    var ctx = ctxList[i];
+
+                    if(ctx.lineDashOffset <= 0){
+                        setTimeout(reset, 3000);
+                        break outer;
+                    }
+
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.lineDashOffset = parseInt(totalLength - totalLength * timingFunction.get((+ new Date() - startTime) / duration));
+                    ctx.stroke(path2d);
+                }
+                requestAnimationFrame(draw);
+            }
+        }
+        function reset(){
+            for (var i = 0, len = ctxList.length; i < len; ++i) {
+                ctxList[i].lineDashOffset = totalLength;
+            }
+            startTime = + new Date();
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    }();
+</script>
+</body>
+</html>
