@@ -21,10 +21,12 @@ dt {
     margin: 20px;
     vertical-align: middle;
     background-color: #4bbcf6;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.demo:last-child{
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
 }
 .demo:before{
     content: " ";
