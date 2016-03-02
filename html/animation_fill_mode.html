@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>animation的fill-mode</title>
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.2.3/weui.css"/>
+    <style type="text/css">
+        div{
+            padding: 10px;
+        }
+        h4{
+            font-weight: normal;
+        }
+        .circle{
+            margin-top: 5px;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4BBCF6;
+            -webkit-animation: 3s move 1s;
+            animation: 3s move 1s;
+        }
+        @-webkit-keyframes move{ 0%{ transform: translate(50px); } 100%{ transform: translate(300px); } }
+        @keyframes move{ 0%{ transform: translate(50px); } 100%{ transform: translate(300px); } }
+        #none{
+            -webkit-animation-fill-mode: none;
+            animation-fill-mode: none;
+        }
+        #forwards{
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+        #backwards{
+            -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
+        }
+        #both{
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h4>none：不改变</h4>
+    <span id="none" class="circle"></span>
+</div>
+<div>
+    <h4>forwards：动画结束后保持最后一帧</h4>
+    <span id="forwards" class="circle"></span>
+</div>
+<div>
+    <h4>backwards：动画开始前保持第一帧</h4>
+    <span id="backwards" class="circle"></span>
+</div>
+<div>
+    <h4>both：具备forwards和backwards</h4>
+    <span id="both" class="circle"></span>
+</div>
+<div class="weui_btn_area">
+    <a href="javascript:location.reload()" class="weui_btn weui_btn_default">刷新</a>
+</div>
+</body>
+</html>
