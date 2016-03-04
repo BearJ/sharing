@@ -3,6 +3,13 @@
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>SVG animateTransform VS CSS Transform</title>
     <style>
+        p,div{
+            display: inline-block;
+            vertical-align: top;
+        }
+        p{
+            width: 10em;
+        }
         .rect{
             -webkit-animation:rotate linear 1s infinite;
             animation:rotate linear 1s infinite;
@@ -29,17 +36,21 @@
 </head>
 <body>
 <p>SVG animateTransform</p>
-<svg width="300px" height="150px">
-    <rect x="50" y="50" width="100" height="50" fill="#4BBCF6">
-        <animateTransform attributeName="transform" type="rotate" from="0 100 75" to="360 100 75" dur="1s" repeatCount="indefinite" />
+<svg width="150px" height="150px">
+    <rect x="25" y="50" width="100" height="50" fill="#4BBCF6">
+        <animateTransform attributeName="transform" type="rotate" from="0 75 75" to="360 75 75" dur="1s" repeatCount="indefinite" />
     </rect>
 </svg>
 <br>
 <br>
 <p>CSS Transform</p>
-<svg width="300px" height="150px">
-    <rect class="rect" x="50" y="50" width="100" height="50" fill="#4BBCF6">
+<svg width="150px" height="150px">
+    <rect class="rect" x="25" y="50" width="100" height="50" fill="#4BBCF6">
     </rect>
 </svg>
+<br>
+<br>
+<p>DIV Transform</p>
+<div class="rect" style="position:relative;left:25px;top:50px;width: 100px;height:50px;background-color: #4BBCF6;"></div>
 </body>
 </html>
